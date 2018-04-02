@@ -6,15 +6,22 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "bitcoinjs-lib": "^3.3.2",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
     "ejs": "^2.5.8",
     "express": "~4.16.0",
     "http-errors": "~1.6.2",
+    "jQuery": "^1.7.4",
     "jade": "~1.11.0",
+    "jsdom": "^11.6.2",
+    "location": "0.0.1",
     "morgan": "~1.9.0",
+    "navigator": "^1.0.1",
     "pg-promise": "^8.2.2",
+    "qrcode": "^1.2.0",
     "winston": "^2.4.1",
-    "winston-console-formatter": "^1.0.0-beta.3"
+    "winston-console-formatter": "^1.0.0-beta.3",
+    "xmlhttprequest": "^1.8.0"
   }
 }
