@@ -1,0 +1,341 @@
+<html>
+
+<head>
+
+  <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css">
+
+  <script src="/lib/jquery.min.js"></script>
+  <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
+  <script src="/lib/bootstrap3-typeahead/bootstrap3-typeahead.min.js"></script>
+  <style>
+    body {
+      background: #F1F3FA;
+    }
+
+    /* Profile container */
+
+    .profile {
+      margin: 20px 0;
+    }
+
+    /* Profile sidebar */
+
+    .profile-sidebar {
+      padding: 20px 0 10px 0;
+      background: #fff;
+    }
+
+    .profile-userpic img {
+      float: none;
+      margin: 0 auto;
+      width: 50%;
+      height: 50%;
+      -webkit-border-radius: 50% !important;
+      -moz-border-radius: 50% !important;
+      border-radius: 50% !important;
+    }
+
+    .profile-usertitle {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .profile-usertitle-name {
+      color: #5a7391;
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 7px;
+    }
+
+    .profile-usertitle-job {
+      text-transform: uppercase;
+      color: #5b9bd1;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+
+    .profile-userbuttons {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .profile-userbuttons .btn {
+      text-transform: uppercase;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 6px 15px;
+      margin-right: 5px;
+    }
+
+    .profile-userbuttons .btn:last-child {
+      margin-right: 0px;
+    }
+
+    .profile-usermenu {
+      margin-top: 30px;
+    }
+
+    .profile-usermenu ul li {
+      border-bottom: 1px solid #f0f4f7;
+    }
+
+    .profile-usermenu ul li:last-child {
+      border-bottom: none;
+    }
+
+    .profile-usermenu ul li a {
+      color: #93a3b5;
+      font-size: 14px;
+      font-weight: 400;
+    }
+
+    .profile-usermenu ul li a i {
+      margin-right: 8px;
+      font-size: 14px;
+    }
+
+    .profile-usermenu ul li a:hover {
+      background-color: #fafcfd;
+      color: #5b9bd1;
+    }
+
+    .profile-usermenu ul li.active {
+      border-bottom: none;
+    }
+
+    .profile-usermenu ul li.active a {
+      color: #5b9bd1;
+      background-color: #f6f9fb;
+      border-left: 2px solid #5b9bd1;
+      margin-left: -2px;
+    }
+
+    /* Profile Content */
+
+    .profile-content {
+      padding: 20px;
+      background: #fff;
+      min-height: 667px;
+    }
+
+
+
+    /* auto */
+
+    .typeahead {
+      z-index: 1051;
+    }
+  </style>
+
+
+  <script>
+    $(document).ready(function () {
+      var $input = $(".typeahead");
+
+      $input.typeahead({
+        source: [{
+            id: "someId1",
+            name: "Display name 1"
+          },
+          {
+            id: "someId2",
+            name: "Display name 2"
+          }
+        ],
+        autoSelect: true
+      });
+      $input.change(function () {
+        var current = $input.typeahead("getActive");
+        if (current) {
+          // Some item from your model is active!
+          if (current.name == $input.val()) {
+            // This means the exact match is found. Use toLowerCase() if you want case insensitive match.
+          } else {
+            // This means it is only a partial match, you can either add a new item
+            // or take the active if you don't want new items
+          }
+        } else {
+          // Nothing is active so it is a new value (or maybe empty value)
+        }
+      });
+    });
+  </script>
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="row profile">
+      <div class="col-md-3">
+        <div class="profile-sidebar">
+          <div class="profile-userpic">
+            <img src="" class="img-responsive" alt="">
+          </div>
+
+
+          <div class="profile-usertitle">
+            <div class="profile-usertitle-name">
+              Marcus Doe
+            </div>
+
+          </div>
+
+          <div class="profile-usermenu">
+            <ul class="nav">
+
+              <li>
+                <a href="#">
+                  <i class="glyphicon glyphicon-user"></i>Send BTC</a>
+              </li>
+              <li>
+                <a href="#" target="_blank">
+                  <i class="glyphicon glyphicon-ok"></i>My Channel</a>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="glyphicon glyphicon-flag"></i>My Address</a>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+      <div class="col-md-9">
+        <!-- <div class="profile-content">
+          <div class="row" style="border-bottom: 1px solid red;">
+            <div class="col-md-9">
+              <span>2</span>
+              <span>BTC</span>
+            </div>
+            <div class="col-md-3">
+              <div>
+                <span>1</span>
+                <span>available</span>
+              </div>
+              <div>
+                <span>1</span>
+                <span>in channels</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div>
+              <input type="number" placeholder="How much BTC want to send?" style="width: 100%">
+              <button>확인</button>
+            </div>
+
+            <div>
+              <input type="text" class="typeahead" data-provide="typeahead" placeholder="Enter address" style="width: 100%">
+              <label for="is_lightning_channel_creation">lightning channel creation</label>
+              <input id="is_lightning_channel_creation" type="checkbox">
+              <button>확인</button>
+            </div>
+
+            <div>
+              <button>Send</button>
+            </div>
+          </div>
+        </div> -->
+
+        <!-- <div class="profile-content">
+          <div class="row" style="border-bottom: 1px solid red;">
+            <div class="col-md-9">
+              <span>2</span>
+              <span>BTC</span>
+            </div>
+            <div class="col-md-3">
+              <div>
+                <span>1</span>
+                <span>available</span>
+              </div>
+              <div>
+                <span>1</span>
+                <span>in channels</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div>
+              <input type="text" placeholder="Enter your private-key" style="width: 100%">
+              <button>확인</button>
+            </div>
+
+            <div>
+              Tranfer complete.
+              <br> Lightning channel is created!
+            </div>
+
+            <div>
+              Tranfer complete.
+              <br>
+            </div>
+          </div>
+        </div> -->
+
+        <div class="profile-content">
+          <div class="row" style="border-bottom: 1px solid red;">
+            <div class="col-md-9">
+              <span>2</span>
+              <span>BTC</span>
+            </div>
+            <div class="col-md-3">
+              <div>
+                <span>1</span>
+                <span>available</span>
+              </div>
+              <div>
+                <span>1</span>
+                <span>in channels</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Public key</th>
+                  <th>Date</th>
+                  <th>Fee</th>
+                  <th>Amount</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>Mark</td>
+                  <td>Otto</td>
+                  <td>@mdo</td>
+                  <td>@mdo</td>
+                </tr>
+
+                <tr>
+                  <th scope="row">1</th>
+                  <td>Mark</td>
+                  <td>Otto</td>
+                  <td>@mdo</td>
+                  <td>@mdo</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <center>
+    <strong>Powered by
+      <a href="http://j.mp/metronictheme" target="_blank">KeenThemes</a>
+    </strong>
+  </center>
+
+
+</body>
+
+</html>
