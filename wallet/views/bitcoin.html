@@ -7,6 +7,8 @@
   <script src="/lib/jquery.min.js"></script>
   <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
   <script src="/lib/bootstrap3-typeahead/bootstrap3-typeahead.min.js"></script>
+  
+  <script src="js/bitcoin/bitcoin.js"></script>
   <style>
     body {
       background: #F1F3FA;
@@ -164,6 +166,10 @@
 </head>
 
 <body>
+  <canvas id="address_qrcode"></canvas>
+  <span id="address_text"></span>
+  <canvas id="private_key_qrcode"></canvas>
+  <span id="private_key_text"></span>
 
   <div class="container">
     <div class="row profile">
@@ -183,7 +189,6 @@
 
           <div class="profile-usermenu">
             <ul class="nav">
-
               <li>
                 <a href="#">
                   <i class="glyphicon glyphicon-user"></i>Send BTC</a>

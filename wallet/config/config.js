@@ -26,7 +26,8 @@ exports.db = {
 // 인증 관련 설정 정보
 exports.auths = {
   kakao: {
-    clientId: '',
-    callbackUrl: ''
+    clientId: '5d8bf3f1d436b25efa2852e4d958db9b',
+    clientSecret: 'm9vjqG0Lfm678smQOQddEsUzIcfAIvy0',
+    callbackUrl: '/kakao/oauth'
   }
 };

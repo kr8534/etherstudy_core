@@ -6,6 +6,10 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "bip32-utils": "^0.11.1",
+    "bitcoin": "^3.0.1",
+    "bitcoin-core": "^2.0.0",
+    "bitcoind-rpc": "^0.7.1",
     "bitcoinjs-lib": "^3.3.2",
     "bootstrap": "^3.3.0",
     "cookie-parser": "~1.4.3",
@@ -19,6 +23,8 @@
     "location": "0.0.1",
     "morgan": "~1.9.0",
     "navigator": "^1.0.1",
+    "passport": "^0.4.0",
+    "passport-kakao": "0.0.5",
     "pg-promise": "^8.2.2",
     "qrcode": "^1.2.0",
     "winston": "^2.4.1",

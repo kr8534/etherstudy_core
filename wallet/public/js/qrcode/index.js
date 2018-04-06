@@ -1,4 +1,4 @@
-var $ = require('jQuery');
+var $ = require('jquery');
 var QRCode = require('qrcode');
 
 exports.makeQRCode = function (element, str) {
