@@ -2,17 +2,18 @@ let bitcoin = require('bitcoinjs-lib');
 let qrcode = require('../qrcode/index');
 
 function makeaccount() {
-	var keyPair = bitcoin.ECPair.makeRandom();
-
-	const account = {
+	var testnet = bitcoin.networks.testnet({network: testnet})
+	const keyPair = bitcoin.ECPair.makeRandom(),
+	account = {
 		privateKey: keyPair.toWIF(),
 		address: keyPair.getAddress()
-	}
+	};
 
-	qrcode.makeQRCode("#qrcode", account.address);
+	qrcode.makeQRCode("#address_qrcode", account.address);
+	qrcode.makeQRCode("#private_key_qrcode", account.privateKey);
 
-
-	return account
+	$("#address_text").text(account.address);
+	$("#private_key_text").text(account.privateKey);
 }
 
 
