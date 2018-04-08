@@ -23,6 +23,7 @@
     <!-- Custom styles for this template -->
     <link href="/css/agency.min.css" rel="stylesheet">
 
+
 </head>
 
 <body id="page-top">
@@ -39,10 +40,10 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav text-uppercase ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger active" href="/main">Wallet</a>
+                        <a class="nav-link js-scroll-trigger" href="/main">Wallet</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="/send">send</a>
+                        <a class="nav-link js-scroll-trigger actives" href="/send">send</a>
                     </li>
                 </ul>
             </div>
@@ -69,7 +70,9 @@
                         </div>
                         <div class="col-lg-6 text-right">
                             <div>
-                                <span class="section-subheading text-muted"><%= balance + 2 %></span>
+                                <span class="section-subheading text-muted">
+                                    <%= balance + 2 %>
+                                </span>
                             </div>
                             <div>
                                 <span class="section-subheading text-muted">
@@ -102,45 +105,24 @@
                             </as>
                 </div>
             </div>
-            <div class="row">
-                <ul class="nav nav-tabs">
-                    <li role="presentation" class="active"><a href="#">Home</a></li>
-                    <li role="presentation"><a href="#">Profile</a></li>
-                    <li role="presentation"><a href="#">Messages</a></li>
-                </ul>
-
-                <hr>
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th class="col-md-1">#</th>
-                            <th class="col-md-5">TxId</th>
-                            <th class="col-md-4">ToAddress</th>
-                            <th class="col-md-1">Amount</th>
-                            <!-- <th class="col-md-1">Time</th> -->
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <% for (var i = txs.length - 1 ; i >= 0 ; i--) { %>
-                            <tr>
-                                <td class="col-md-1" scope="row"><%= (txs.length - i - 1) + 1 %></th>
-                                <td class="col-md-5"><%= txs[i].txid %></td>
-                                <td class="col-md-4"><%= txs[i].address %></td>
-                                <% if (txs[i].amount - 0 < 0) { %>
-                                    <td class="col-md-1 text-center text-danger"><%= txs[i].amount %></td>
-                                <% } else { %>
-                                    <td class="col-md-1 text-center text-success"><%= txs[i].amount %></td>
-                                <% } %>
-                                <!-- <td class="col-md-1"><%= txs[i].time %></td> -->
-                            </tr>
-                        <% } %>
-                    </tbody>
-                </table>
-            </div>
             <div class="row text-center">
-                <div class="col-md-4">
+                <div class="col-md-12">
+                    <div></div>
+                    <div class="form-group">
+                        <input class="form-control" id="name" type="text" placeholder="To Address">
+                        <p class="help-block text-danger"></p>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" id="email" type="email" placeholder="Amount">
+                        <p class="help-block text-danger"></p>
+                    </div>
+                </div>
+                <div class="col-lg-12 text-center">
+                    <div id="success"></div>
+                    <button id="sendCoin" class="btn btn-primary btn-xl text-uppercase" type="submit">Send Message</button>
                 </div>
             </div>
+
         </div>
     </section>
 
@@ -204,6 +186,23 @@
     <script>
         $(document).ready(function () {
             $('#qrcode').qrcode({ width: 120, height: 120, text: $('#qrcode_text').text() });
+
+            $('#sendCoin').on('click', function () {
+
+                debugger;
+                $.ajax({
+                    type: "POST",
+                    url: "147.46.240.242:8080",
+                    headers: { "Content-Type": "application/json" },
+                    data: { "jsonrpc": "2.0", "id": "1", "method": "listpeers", "params": [] },
+                    dataType: 'json',
+                    success: function (error, response, body) {
+                        console.log(error);
+                        console.log(JSON.stringify(response));
+                        console.log(body);
+                    }
+                });
+            });
         })
 
     </script>

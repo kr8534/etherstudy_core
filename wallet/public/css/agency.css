@@ -48,9 +48,15 @@ section h3.section-subheading {
   font-family: 'Droid Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
+span.section-heading {
+  font-size: 50px;
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
 @media (min-width: 768px) {
   section {
-    padding: 150px 0;
+    padding: 120px 0;
   }
 }
 

@@ -29,5 +29,10 @@ exports.auths = {
     clientId: '5d8bf3f1d436b25efa2852e4d958db9b',
     clientSecret: 'm9vjqG0Lfm678smQOQddEsUzIcfAIvy0',
     callbackUrl: '/kakao/oauth'
+  },
+  facebook: {
+    clientId: '182167109259940',
+    clientSecret: '545a9402c5ab04468026ae0b6f04ce86',
+    callbackUrl: '/facebook/oauth'
   }
 };

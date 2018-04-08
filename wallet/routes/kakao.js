@@ -12,7 +12,6 @@ passport.deserializeUser((user, done) => {
   done(null, user);
 });
   
-
 passport.use(new KakaoStrategy({
   clientID: authKaKao.clientId,
   clientSecret: authKaKao.clientSecret,
